@@ -3,4 +3,6 @@ const nextConfig = {
   // Configurações do Next.js
 }
 
+
+
 module.exports = nextConfig

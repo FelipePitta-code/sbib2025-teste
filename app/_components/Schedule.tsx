@@ -19,21 +19,21 @@ const Schedule = () => {
   }
 
   return (
-    <section id="cronograma" className="py-20 px-4 bg-slate-900">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">CRONOGRAMA</h2>
+    <section id="cronograma" className="info-section">
+      <div className="container">
+        <h2>CRONOGRAMA</h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {scheduleData.map(item => (
-            <div key={item.day} className="bg-slate-800/50 p-4 rounded-lg">
+            <div key={item.day} style={{ backgroundColor: 'var(--accent-purple-dark)', padding: '1rem', borderRadius: '15px' }}>
               <div className="text-center mb-4">
-                <p className="font-bold text-lg">{item.day}</p>
-                <p className="text-sm text-gray-400">{item.mode}</p>
+                <p className="font-bold text-lg" style={{ color: 'var(--text-light)' }}>{item.day}</p>
+                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{item.mode}</p>
               </div>
               <div className="space-y-4">
                 {item.events.map(event => (
-                  <div key={event.title} className={`p-3 rounded-md bg-slate-700 border-l-4 ${getTypeClass(event.type)}`}>
-                    <p className="font-semibold text-sm">{event.title}</p>
-                    <p className="text-xs text-gray-400">{event.time}</p>
+                  <div key={event.title} className={`p-3 rounded-md ${getTypeClass(event.type)}`} style={{ backgroundColor: 'var(--bg-dark)' }}>
+                    <p className="font-semibold text-sm" style={{ color: 'var(--text-light)' }}>{event.title}</p>
+                    <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>{event.time}</p>
                   </div>
                 ))}
               </div>
@@ -51,3 +51,5 @@ const Schedule = () => {
 };
 
 export default Schedule;
+
+

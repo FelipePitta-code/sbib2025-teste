@@ -33,21 +33,23 @@ const Countdown = () => {
       timeLeft[interval] = 0;
     }
     return (
-      <div key={interval} className="bg-slate-800 p-4 rounded-lg">
-        <div className="text-4xl font-bold text-cyan-400">
+      <div key={interval} className="countdown-item">
+        <span className="number">
           {/* @ts-ignore */}
           {String(timeLeft[interval]).padStart(2, '0')}
-        </div>
-        <div className="text-sm uppercase text-gray-400">{interval}</div>
+        </span>
+        <span className="label">{interval}</span>
       </div>
     );
   });
 
   return (
-    <div className="flex justify-center space-x-4">
+    <div className="countdown-timer">
       {timerComponents.length ? timerComponents : <span>O evento começou!</span>}
     </div>
   );
 };
 
 export default Countdown;
+
+
