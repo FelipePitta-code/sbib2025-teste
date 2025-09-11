@@ -126,8 +126,7 @@ p {
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  gap: 2rem; /* Apenas o espaçamento é necessário aqui */
 }
 
 .nav-links a {
@@ -176,7 +175,8 @@ p {
 
 .countdown-timer {
   display: flex;
-  gap: 2rem;
+  justify-content: center; /* Adicione esta linha */
+  gap: 1rem;
   margin-top: 1rem;
 }
 

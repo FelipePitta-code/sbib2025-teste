@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="hero-section">
       <div className="container">
         <h1>
-          XXIII SEMANA BRASILEIRA <br /> DE INFORMÁTICA <span style={{ color: 'var(--accent-purple)' }}>BIOMÉDICA</span>
+          XXIII SEMANA BRASILEIRA <br /> DE <span style={{ color: 'var(--accent-purple)' }}>INFORMÁTICA BIOMÉDICA</span>
         </h1>
         <p className="event-date">22 a 26 de Setembro</p>
         <Countdown />

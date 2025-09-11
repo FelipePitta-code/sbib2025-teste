@@ -11,8 +11,9 @@ const Header = () => {
           <a href="/">HOME</a>
           <a href="/cronograma">CRONOGRAMA</a>
           <a href="#">TRANSMISSÕES</a>
+          <a href="#">NOSSOS PRODUTOS</a>
           <a href="#">EDIÇÕES ANTERIORES</a>
-          <a href="#" className="btn btn-cta">INSCREVA-SE</a>
+          <a href="https://www.sympla.com.br/evento-online/xxi-semana-brasileira-de-informatica-biomedica/2135123?_gl=1*19qz2h9*_ga*MTIxNTUwMTY1Ny4xNjkyOTU5NjQ5*_ga_KXH10SQTZF*MTY5Mjk3MjQwNi4yLjEuMTY5Mjk3Mjk3OS4wLjAuMA..&referrer=sbib.biocodejr.com.br" className="btn btn-cta">INSCREVA-SE</a>
         </div>
         <div className="md:hidden">
           {/* Ícone de Menu para Mobile */}
