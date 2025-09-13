@@ -1,39 +1,88 @@
 'use client';
 import { useState } from 'react';
-import React from 'react';
+import Link from 'next/link'; // Importa o componente Link do Next.js
+
+// Array com os links para evitar repetição de código (Princípio DRY)
+const navLinks = [
+  { href: '/', label: 'HOME' },
+  { href: '/cronograma', label: 'CRONOGRAMA' },
+  { href: '/streamings', label: 'TRANSMISSÕES' },
+  { href: '/products', label: 'NOSSOS PRODUTOS' },
+  { href: '/past_editions', label: 'EDIÇÕES ANTERIORES' },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Função para fechar o menu ao clicar em um link
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <header className="main-header">
+    // Header fixo no topo com sombra e z-index para ficar acima de outros elementos
+    <header className="bg-gray-900 shadow-lg sticky top-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold" style={{ color: 'var(--text-light)' }}>
+        {/* Logo/Branding - usa Link para a página inicial */}
+        <Link href="/" className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
           SBIB
+        </Link>
+
+        {/* --- Navegação para Desktop --- */}
+        <div className="hidden md:flex items-center space-x-6">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="text-gray-300 hover:text-white transition-colors font-medium">
+              {link.label}
+            </Link>
+          ))}
+          {/* Botão de CTA (Call to Action) externo */}
+          <a
+            href="https://www.sympla.com.br/evento-online/xxiii-semana-brasileira-de-informatica-biomedica/3093188"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-transform transform hover:scale-105"
+          >
+            INSCREVA-SE
+          </a>
         </div>
-        <div className="hidden md:flex nav-links">
-          <a href="/">HOME</a>
-          <a href="/cronograma">CRONOGRAMA</a>
-          <a href="/streamings">TRANSMISSÕES</a>
-          <a href="/products">NOSSOS PRODUTOS</a>
-          <a href="/past_editions">EDIÇÕES ANTERIORES</a>
-          <a href="https://www.sympla.com.br/evento-online/xxi-semana-brasileira-de-informatica-biomedica/2135123?_gl=1*19qz2h9*_ga*MTIxNTUwMTY1Ny4xNjkyOTU5NjQ5*_ga_KXH10SQTZF*MTY5Mjk3MjQwNi4yLjEuMTY5Mjk3Mjk3OS4wLjAuMA..&referrer=sbib.biocodejr.com.br" className="btn btn-cta">INSCREVA-SE</a>
-        </div>
+
+        {/* --- Botão do Menu Mobile --- */}
         <div className="md:hidden">
-          {/* Ícone de Menu para Mobile */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ color: 'var(--text-light)' }}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white focus:outline-none"
+            aria-label="Abrir menu"
+            aria-expanded={isMenuOpen}
+          >
+            {/* Ícone de Menu (Hamburguer/X) com animação */}
+            <div className="w-6 h-6 flex flex-col justify-around">
+              <span className={`block w-full h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
+              <span className={`block w-full h-0.5 bg-white transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`block w-full h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[5px]' : ''}`}></span>
+            </div>
           </button>
         </div>
       </nav>
-      {/* --- Menu Mobile Dropdown --- */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-full left-0 w-full shadow-lg`} style={{ backgroundColor: 'var(--bg-primary)' }}>
-        <div className="flex flex-col items-center space-y-4 py-4">
-          <a href="/" className="nav-links">HOME</a>
-          <a href="#" className="nav-links">CRONOGRAMA</a>
-          <a href="/streamings" className="nav-links">TRANSMISSÕES</a>
-          <a href="/products" className="nav-links">NOSSOS PRODUTOS</a>
-          <a href="/past_editions" className="nav-links">EDIÇÕES ANTERIORES</a>
-          <a href="https://www.sympla.com.br/evento-online/xxiii-semana-brasileira-de-informatica-biomedica/2135237" target="_blank" rel="noopener noreferrer" className="btn btn-cta w-4/5 text-center">INSCREVA-SE</a>
+
+      {/* --- Menu Mobile Dropdown com Animação --- */}
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-gray-900 transition-all duration-300 ease-in-out overflow-hidden ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="flex flex-col items-center space-y-4 py-6">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} onClick={closeMenu} className="text-gray-300 hover:text-white transition-colors font-medium text-lg">
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="https://www.sympla.com.br/evento-online/xxiii-semana-brasileira-de-informatica-biomedica/3093188"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105 w-4/5 text-center mt-4"
+          >
+            INSCREVA-SE
+          </a>
         </div>
       </div>
     </header>
@@ -41,5 +90,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configurações do Next.js
-}
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ufpr.br',
+      },
+      {
+        protocol: 'https',
+        hostname: 'simposioensinonasaude.ufcspa.edu.br',
+      },
+    ],
+  },
+};
 
-
-
-module.exports = nextConfig
+module.exports = nextConfig;

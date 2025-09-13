@@ -1,0 +1,81 @@
+/* src/components/Footer.css */
+
+/* Define as variáveis de cor para fácil customização */
+:root {
+  --footer-bg: #1a1a1a;
+  --footer-text: #a0a0a0;
+  --footer-title-text: #ffffff;
+  --footer-accent: #8A2BE2; /* Um roxo vibrante como cor de destaque */
+  --footer-border: #333333;
+}
+
+.site-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 40px 20px 20px 20px;
+  font-family: 'Inter', sans-serif; /* Use uma fonte moderna, se tiver */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas menores */
+  gap: 20px;
+}
+
+.footer-about {
+  max-width: 500px;
+}
+
+.footer-title {
+  color: var(--footer-title-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Estilo dos Ícones Sociais */
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: var(--footer-text);
+  font-size: 1.5rem; /* Tamanho dos ícones */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--footer-accent); /* Muda para a cor de destaque no hover */
+  transform: scale(1.1); /* Efeito de zoom sutil */
+}
+
+/* Barra de Copyright */
+.footer-bottom-bar {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--footer-border);
+  font-size: 0.8rem;
+}
+
+/* Media Query para Responsividade */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    text-align: center;
+  }
+
+  .footer-about {
+    margin-bottom: 20px;
+  }
+}

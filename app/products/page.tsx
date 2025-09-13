@@ -5,7 +5,6 @@ import React from 'react';
 // --- Interface unificada para todos os tipos de produtos ---
 interface ProductCardProps {
   title: string;
-  description: string;
   status: 'Disponível' | 'Em Breve' | 'Esgotado';
   imageSrc: string;
   buyLink: string;
@@ -14,7 +13,7 @@ interface ProductCardProps {
   sizes?: string[];
 }
 
-const ProductCard = ({ title, description, status, imageSrc, buyLink, price, sizes }: ProductCardProps) => {
+const ProductCard = ({ title, status, imageSrc, buyLink, price, sizes }: ProductCardProps) => {
   const isAvailable = status === 'Disponível';
   const isOutOfStock = status === 'Esgotado';
   const isComingSoon = status === 'Em Breve';
@@ -26,7 +25,7 @@ const ProductCard = ({ title, description, status, imageSrc, buyLink, price, siz
 
   return (
     <div 
-      className="bg-[var(--accent-purple)] rounded-lg p-6 flex flex-col shadow-lg transition-transform hover:scale-105 h-full"
+      className="bg-purple-500/60 rounded-lg p-6 flex flex-col shadow-lg transition-transform hover:scale-105 h-full"
     >
       {/* Imagem do Produto */}
       <div className="w-full h-48 mb-4 bg-gray-700 rounded-md flex items-center justify-center overflow-hidden">
@@ -70,8 +69,6 @@ const ProductCard = ({ title, description, status, imageSrc, buyLink, price, siz
         </div>
       )}
 
-      {/* Descrição */}
-      <p className="text-[var(--text-secondary)] text-left flex-grow mb-4">{description}</p>
 
       {/* Botão de Ação */}
       <a
@@ -94,27 +91,24 @@ const ProductCard = ({ title, description, status, imageSrc, buyLink, price, siz
 // --- Componente Principal da Página ---
 const Products = () => {
   return (
-    <section className="content-section min-h-screen">
+    <section className="bg-gradient-to-b from-[#094568] to-[#52285a]">
       <div className="container mx-auto text-center py-12 px-4">
         
         {/* Seção de Produtos Físicos */}
         <h2 className="section-title">PRODUTOS OFICIAIS</h2>
-        <p className="text-[var(--text-secondary)] mt-2 mb-12 max-w-2xl mx-auto">
-          Adquira produtos oficiais do evento e leve para casa uma lembrança especial desta edição. Camisetas, acessórios e muito mais!
-        </p>
+        <p className="text-[var(--text-secondary)] mt-3 mb-14 max-w-2xl mx-auto">
+          <h4>Adquira produtos oficiais do evento. A venda será realizada de forma PRESENCIAL no dia do evento!</h4></p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <ProductCard 
             title="Adesivo SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/adesivo.jpg"
             buyLink="#"
-            sizes={['P', 'M', 'G', 'GG']}
+            sizes={['Único']}
           />
           <ProductCard 
             title="Broche SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/broche.jpeg"
@@ -123,7 +117,6 @@ const Products = () => {
           />
           <ProductCard 
             title="Camiseta SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/camisa_frente.jpg"
@@ -132,30 +125,27 @@ const Products = () => {
           />
           <ProductCard 
             title="Cordão SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/cordao.jpg"
             buyLink="#"
-            sizes={['P', 'M', 'G', 'GG', 'XG']}
+            sizes={['Único']}
           />
           <ProductCard 
             title="Ecobag SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/ecobag.jpg"
             buyLink="#"
-            sizes={['P', 'M', 'G', 'GG', 'XG']}
+            sizes={['Único']}
           />
           <ProductCard 
             title="Garrafa SBIB 2025"
-            description="..."
             price="Preço a definir"
             status="Disponível"
             imageSrc="/img.products/garrafa.jpg"
             buyLink="#"
-            sizes={['P', 'M', 'G', 'GG', 'XG']}
+            sizes={['Único']}
           />
         </div>
      

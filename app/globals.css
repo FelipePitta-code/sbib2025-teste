@@ -757,4 +757,9 @@ p {
   }
 }
 
-
+.feature-section-bg {
+  background-color: #111827; /* Cor de fallback para navegadores antigos */
+  background-image: radial-gradient(at 20% 80%, hsla(260, 80%, 25%, 0.3) 0px, transparent 50%),
+                    radial-gradient(at 80% 20%, hsla(280, 85%, 30%, 0.3) 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, hsla(270, 75%, 20%, 0.2) 0px, transparent 50%);
+}
