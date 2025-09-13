@@ -306,9 +306,26 @@ p {
   gap: 1rem;
 }
 
-.footer-text {
-  font-size: 0.9rem;
+.footer-left,
+.footer-right,
+.footer-bottom {
   color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.footer-left {
+  flex: 1 1 40%;
+}
+
+.footer-right {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .social-icons {
@@ -457,6 +474,148 @@ p {
 }
 
 /* ==============================================
+  Página de Edições Anteriores
+  ==============================================
+*/
+
+.past-editions-page h2 {
+  color: var(--text-light);
+}
+
+.past-editions-rows {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edition-row {
+  display: grid;
+  gap: 2rem;
+}
+
+.edition-row.two {
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+.edition-row.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.edition-card {
+  display: block;
+  background-color: var(--accent-purple);
+  border-radius: 20px;
+  height: 160px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edition-card-inner {
+  background-color: var(--accent-purple);
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edition-year {
+  color: var(--bg-dark);
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.edition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(131, 103, 199, 0.35);
+}
+
+/* Páginas individuais de edição */
+.edition-detail h2 { color: var(--text-light); }
+
+.edition-banner {
+  margin-top: 2rem;
+  border-radius: 15px;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+.edition-banner img { width: 100%; height: auto; display: block; }
+.banner-placeholder {
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  color: var(--text-light);
+  border: 2px dashed var(--accent-purple);
+}
+
+.edition-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.edition-meta h3 { color: var(--text-light); margin-bottom: 0.5rem; }
+
+.edition-photo {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edition-photo img { 
+  width: 100%; 
+  max-width: 720px; 
+  border-radius: 15px; 
+}
+
+.photo-placeholder {
+  width: 100%;
+  max-width: 720px;
+  height: 360px;
+  border-radius: 15px;
+  border: 2px dashed var(--accent-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.youtube-link {
+  text-align: center;
+}
+
+.youtube-btn {
+  display: inline-block;
+  background-color: #ff0000;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-btn:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
+}
+
+/* ==============================================
   Media Queries para Responsividade
   ==============================================
 */
@@ -479,6 +638,15 @@ p {
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+  }
+  .footer-right {
+    justify-content: center;
+  }
+  .footer-left {
+    text-align: center;
+  }
+  .footer-bottom {
+    margin-top: 0.5rem;
   }
   
   .streamings-grid {
@@ -510,6 +678,14 @@ p {
   
   .streaming-placeholder p {
     font-size: 0.65rem;
+  }
+
+  .past-editions-rows { gap: 1.2rem; }
+  .edition-row { gap: 1.2rem; }
+  .edition-row.two { grid-template-columns: repeat(2, 1fr); }
+  .edition-row.three { grid-template-columns: repeat(2, 1fr); }
+  .edition-card {
+    height: 140px;
   }
 }
 
@@ -555,6 +731,8 @@ p {
     font-size: 0.8rem;
     line-height: 1.4;
   }
+
+  .edition-row.two, .edition-row.three { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

@@ -15,7 +15,7 @@ const Header = () => {
           <a href="/cronograma">CRONOGRAMA</a>
           <a href="/streamings">TRANSMISSÕES</a>
           <a href="/products">NOSSOS PRODUTOS</a>
-          <a href="#">EDIÇÕES ANTERIORES</a>
+          <a href="/past_editions">EDIÇÕES ANTERIORES</a>
           <a href="https://www.sympla.com.br/evento-online/xxi-semana-brasileira-de-informatica-biomedica/2135123?_gl=1*19qz2h9*_ga*MTIxNTUwMTY1Ny4xNjkyOTU5NjQ5*_ga_KXH10SQTZF*MTY5Mjk3MjQwNi4yLjEuMTY5Mjk3Mjk3OS4wLjAuMA..&referrer=sbib.biocodejr.com.br" className="btn btn-cta">INSCREVA-SE</a>
         </div>
         <div className="md:hidden">
@@ -32,7 +32,7 @@ const Header = () => {
           <a href="#" className="nav-links">CRONOGRAMA</a>
           <a href="/streamings" className="nav-links">TRANSMISSÕES</a>
           <a href="/products" className="nav-links">NOSSOS PRODUTOS</a>
-          <a href="#" className="nav-links">EDIÇÕES ANTERIORES</a>
+          <a href="/past_editions" className="nav-links">EDIÇÕES ANTERIORES</a>
           <a href="https://www.sympla.com.br/evento-online/xxiii-semana-brasileira-de-informatica-biomedica/2135237" target="_blank" rel="noopener noreferrer" className="btn btn-cta w-4/5 text-center">INSCREVA-SE</a>
         </div>
       </div>

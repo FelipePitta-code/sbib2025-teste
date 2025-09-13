@@ -7,14 +7,14 @@ interface ProductCardProps {
   title: string;
   description: string;
   status: 'Disponível' | 'Em Breve' | 'Esgotado';
-  imageUrl: string;
+  imageSrc: string;
   buyLink: string;
   // Propriedades opcionais para produtos físicos
   price?: string;
   sizes?: string[];
 }
 
-const ProductCard = ({ title, description, status, imageUrl, buyLink, price, sizes }: ProductCardProps) => {
+const ProductCard = ({ title, description, status, imageSrc, buyLink, price, sizes }: ProductCardProps) => {
   const isAvailable = status === 'Disponível';
   const isOutOfStock = status === 'Esgotado';
   const isComingSoon = status === 'Em Breve';
@@ -30,7 +30,7 @@ const ProductCard = ({ title, description, status, imageUrl, buyLink, price, siz
     >
       {/* Imagem do Produto */}
       <div className="w-full h-48 mb-4 bg-gray-700 rounded-md flex items-center justify-center overflow-hidden">
-        <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+        <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
       </div>
       
       {/* Título e Status */}
@@ -104,71 +104,69 @@ const Products = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <ProductCard 
-            title="Camiseta SBIB 2025 - Básica"
-            description="Camiseta 100% algodão com o logo oficial da SBIB 2025. Confortável e ideal para o dia a dia."
-            price="R$ 45,00"
+            title="Adesivo SBIB 2025"
+            description="..."
+            price="Preço a definir"
             status="Disponível"
-            imageUrl="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop"
-            buyLink="#"
-            sizes={['P', 'M', 'G', 'GG', 'XG']}
-          />
-          <ProductCard 
-            title="Moletom SBIB 2025"
-            description="Moletom com capuz para os dias mais frios. Conforto e estilo em um só produto."
-            price="R$ 95,00"
-            status="Disponível"
-            imageUrl="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop"
+            imageSrc="/img.products/adesivo.jpg"
             buyLink="#"
             sizes={['P', 'M', 'G', 'GG']}
           />
           <ProductCard 
-            title="Boné SBIB 2025"
-            description="Boné ajustável com o logo bordado. Proteção solar com estilo."
-            price="R$ 40,00"
-            status="Esgotado"
-            imageUrl="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop"
+            title="Broche SBIB 2025"
+            description="..."
+            price="Preço a definir"
+            status="Disponível"
+            imageSrc="/img.products/broche.jpeg"
             buyLink="#"
             sizes={['Único']}
           />
-        </div>
-
-        {/* Seção de Produtos Digitais */}
-        <h2 className="section-title mt-20">CURSOS E MATERIAIS</h2>
-        <p className="text-[var(--text-secondary)] mt-2 mb-12 max-w-2xl mx-auto">
-          Explore os cursos, workshops e materiais exclusivos desenvolvidos pela SBIB para aprofundar seu conhecimento em Informática Biomédica.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <ProductCard 
-            title="Curso de Python para Bioinformática"
-            description="Aprenda a programar em Python com foco em análise de dados genômicos e biológicos. Ideal para iniciantes."
+            title="Camiseta SBIB 2025"
+            description="..."
+            price="Preço a definir"
             status="Disponível"
-            imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+            imageSrc="/img.products/camisa_frente.jpg"
             buyLink="#"
+            sizes={['P', 'M', 'G', 'GG', 'XG']}
           />
           <ProductCard 
-            title="Workshop de Machine Learning"
-            description="Explore algoritmos de aprendizado de máquina para criar modelos preditivos com dados clínicos e de imagens médicas."
-            status="Em Breve"
-            imageUrl="https://static.vecteezy.com/system/resources/thumbnails/006/617/173/small/brain-with-a-digital-circuit-board-texture-and-a-glowing-light-effect-ai-generated-photo.jpg"
+            title="Cordão SBIB 2025"
+            description="..."
+            price="Preço a definir"
+            status="Disponível"
+            imageSrc="/img.products/cordao.jpg"
             buyLink="#"
+            sizes={['P', 'M', 'G', 'GG', 'XG']}
           />
           <ProductCard 
-            title="E-book: Imagens Médicas"
-            description="Um guia completo sobre as técnicas e ferramentas para análise de imagens como Tomografia e Ressonância Magnética."
-            status="Em Breve"
-            imageUrl="https://www.saudedigital.com.br/wp-content/uploads/2021/08/imagem-medica.jpeg"
+            title="Ecobag SBIB 2025"
+            description="..."
+            price="Preço a definir"
+            status="Disponível"
+            imageSrc="/img.products/ecobag.jpg"
             buyLink="#"
+            sizes={['P', 'M', 'G', 'GG', 'XG']}
+          />
+          <ProductCard 
+            title="Garrafa SBIB 2025"
+            description="..."
+            price="Preço a definir"
+            status="Disponível"
+            imageSrc="/img.products/garrafa.jpg"
+            buyLink="#"
+            sizes={['P', 'M', 'G', 'GG', 'XG']}
           />
         </div>
-
+     
         {/* Informações de Entrega */}
         <div className="mt-20 bg-[var(--bg-dark)] rounded-lg p-8 max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold mb-4 text-center text-[var(--text-light)]">Informações de Entrega</h3>
           <p className="text-center text-[var(--text-secondary)]">
-            Entre em contato com os responsáveis na comissão organizadora da SBIB para ter informações sobre as entregas dos produtos.
+            Entre em contato com os responsáveis na comissão organizadora da SBIB em sua respectiva faculdade para ter informações sobre as entregas dos produtos.
           </p>
         </div>
-
+  
         
       </div>
     </section>
