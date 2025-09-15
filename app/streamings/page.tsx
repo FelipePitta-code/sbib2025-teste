@@ -13,7 +13,7 @@ interface Stream {
 
 // --- DADOS DAS TRANSMISSÕES (fácil de atualizar) ---
 const streamsData: Stream[] = [
-  { id: 1, title: "Abertura - USP", status: 'live', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
+  { id: 1, title: "Abertura - USP", status: 'upcoming', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
   { id: 2, title: "Abertura - UFPR", status: 'upcoming', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
   { id: 3, title: "Abertura - UFCSPA", status: 'upcoming', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
 ];
