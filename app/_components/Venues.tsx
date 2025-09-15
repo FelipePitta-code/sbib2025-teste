@@ -27,7 +27,7 @@ const venuesData = [
   },
 ];
 
-// --- Componente do Card Individual (com a correção de alinhamento) ---
+// --- Componente do Card Individual ---
 interface VenueCardProps {
   university: string;
   location: string;
@@ -39,15 +39,12 @@ interface VenueCardProps {
 const VenueCard = ({ university, location, auditorium, logoSrc, mapLink }: VenueCardProps) => {
   return (
     <div className="
-      bg-white dark:bg-gray-800/50 rounded-xl shadow-md
+      bg-white rounded-xl shadow-md
       transition-all duration-300
       hover:shadow-xl hover:scale-[1.03]
       flex flex-col h-full
     ">
-      {/* MODIFICAÇÃO AQUI: Altura fixa e centralização para o logo.
-        - h-32: Define uma altura fixa para esta área (você pode ajustar se precisar).
-        - flex, items-center, justify-center: Centraliza o logo dentro desta área.
-      */}
+
       <div className="h-32 flex items-center justify-center p-6 border-b border-gray-200 dark:border-gray-700">
         <Image
           src={logoSrc}
@@ -58,14 +55,14 @@ const VenueCard = ({ university, location, auditorium, logoSrc, mapLink }: Venue
         />
       </div>
 
-      {/* Conteúdo de Texto (sem alterações) */}
+      {/* Conteúdo de Texto*/}
       <div className="p-6 flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{location}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mt-1">{university}</p>
-        <p className="text-gray-500 dark:text-gray-400 text-sm">{auditorium}</p>
+        <h3 className="text-xl font-bold text-gray-900">{location}</h3>
+        <p className="text-gray-600 mt-1">{university}</p>
+        <p className="text-gray-500 text-sm">{auditorium}</p>
       </div>
       
-      {/* Botão de Ação (sem alterações) */}
+      {/* Botão de Ação*/}
       <div className="p-6 pt-0">
         <a
           href={mapLink}
@@ -88,16 +85,16 @@ const VenueCard = ({ university, location, auditorium, logoSrc, mapLink }: Venue
   );
 };
 
-// --- Componente Principal da Seção (sem alterações) ---
+// --- Componente Principal da Seção ---
 const Venues = () => {
   return (
-    <section className="bg-gray-200 dark:bg-gray-900 py-20 sm:py-28">
+    <section className="bg-gray-300 py-20 sm:py-28">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Sedes Presenciais
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-lg text-gray-600">
             O evento acontecerá simultaneamente nas três universidades.
           </p>
         </div>

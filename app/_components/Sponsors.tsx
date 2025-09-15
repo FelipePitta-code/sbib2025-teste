@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Sponsors = () => {
   return (
-      <section className="bg-gradient-to-b from-[#193f55] to-[#285a43]">
+      <section className="bg-gradient-to-b from-[#193f55] to-[#000000]">
       <div className="container mx-auto px-4 text-center">
         <h2>PATROCÍNIOS E APOIOS</h2>
         
@@ -85,14 +85,14 @@ const Sponsors = () => {
           <h3 style={{ color: 'var(--accent-purple)' }}>PATROCÍNIO Bronze</h3>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
             {/* USPapel */}
-            <div className="w-43 h-43 mx-auto rounded-lg flex items-center justify-center p-4">
+            <div className="w-33 h-33 mx-auto rounded-lg flex items-center justify-center p-4">
               <a href="https://www.uspapelartigos.com/" target="_blank" rel="noopener noreferrer">
                 <Image 
-                  src="/logos/logo-uspapel.jpg" 
+                  src="/logos/uspapel-canva.png" 
                   alt="Logo USPapel."
-                  width={200}
-                  height={200}
-                  className="object-contain w-full h-full"
+                  width={150}
+                  height={150}
+                  className="object-contain w-50 h-full"
                 />
               </a>
             </div>

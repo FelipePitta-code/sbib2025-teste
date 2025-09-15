@@ -8,7 +8,6 @@ interface ProductCardProps {
   status: 'Disponível' | 'Em Breve' | 'Esgotado';
   imageSrc: string;
   buyLink: string;
-  // Propriedades opcionais para produtos físicos
   price?: string;
   sizes?: string[];
 }
@@ -72,7 +71,7 @@ const ProductCard = ({ title, status, imageSrc, buyLink, price, sizes }: Product
 
       {/* Botão de Ação */}
       <a
-        href={buyLink}
+        href={"https://lojaoficialsbib.lojavirtualnuvem.com.br/"}
         target="_blank"
         rel="noopener noreferrer"
         className={`w-full mt-auto py-2 px-4 rounded-lg font-semibold transition-colors text-center ${

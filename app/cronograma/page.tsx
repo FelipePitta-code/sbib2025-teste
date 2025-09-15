@@ -1,65 +1,95 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import { University, Tv, Users, Presentation } from 'lucide-react'; // Ícones para um toque extra
+import { University, Users, Presentation, Clock } from 'lucide-react';
 
 // ============================================================================
-// 1. ESTRUTURA DE DADOS REFEITA (ORGANIZADA POR LOCAL)
+// 1. ESTRUTURA DE DADOS ATUALIZADA E CORRIGIDA
 // ============================================================================
 const allSchedules = {
   usp: [
-    { day: "22 Seg", date: "22/09 - E-Saúde", events: [
+    // Antigos eventos "Online" agora consolidados na USP
+    { day: "Seg 22/09", date: "22/09 - E-Saúde", events: [
       { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 1", type: "palestra" },
-      { time: "14:20-15:00", title: "COMO CONSOLIDAR UMA CARREIRA NA ÁREA DA SAÚDE E TECNOLOGIA", type: "palestra" },
+      { time: "14:20-15:00", title: "COMO CONSOLIDAR UMA CARREIRA NA ÁREA DA SAÚDE E TECNOLOGIA - UBIRAJARA", type: "palestra" },
       { time: "15:00-15:20", title: "DINÂMICA 1", type: "mesa" },
-      { time: "15:20-16:00", title: "GESTÃO EM SAÚDE - PELA VISÃO DE UMA EX SECRETÁRIA DE SAÚDE", type: "palestra" },
-      { time: "16:00-16:40", title: "PANORAMA GERAL DA TRASFORMAÇÃO TECNOLÓGICA NA SAÚDE PÚBLICA", type: "palestra" },
+      { time: "15:20-16:00", title: "GESTÃO EM SAÚDE - PELA VISÃO DE UMA EX SECRETÁRIA DE SAÚDE - LUCIANA", type: "palestra" },
+      { time: "16:00-16:40", title: "PANORAMA GERAL DA TRASFORMAÇÃO TECNOLÓGICA NA SAÚDE PÚBLICA - MELISSA", type: "palestra" },
       { time: "16:40-17:00", title: "DINÂMICA 2", type: "mesa" },
     ]},
-    { day: "23 Ter", date: "23/09 - Imagens Médicas", events: [
+    { day: "Ter 23/09", date: "23/09 - Imagens Médicas", events: [
       { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 2", type: "palestra" },
-      { time: "14:20-15:00", title: "INICIATIVAS COM IA", type: "palestra" },
+      { time: "14:20-15:00", title: "INICIATIVAS COM IA - PAULO MAZZONCINI", type: "palestra" },
       { time: "15:00-15:20", title: "DINÂMICA 1", type: "mesa" },
-      { time: "15:20-16:00", title: "GESTÃO EM SAÚDE - PELA VISÃO DE UMA EX SECRETÁRIA DE SAÚDE", type: "palestra" },
-      { time: "16:00-16:40", title: "PANORAMA GERAL DA TRASFORMAÇÃO TECNOLÓGICA NA SAÚDE PÚBLICA", type: "palestra" },
+      { time: "15:20-16:00", title: "GESTÃO EM SAÚDE - PELA VISÃO DE UMA EX SECRETÁRIA DE SAÚDE - GRACIELLA FAVORETO", type: "palestra" },
+      { time: "16:00-16:40", title: "PANORAMA GERAL DA TRASFORMAÇÃO TECNOLÓGICA NA SAÚDE PÚBLICA - BEATRIZ CORRETI", type: "palestra" },
       { time: "16:40-17:00", title: "DINÂMICA 2", type: "mesa" },
     ]},
+    { day: "Qua 24/09", date: "24/09 - Bioinformática", events: [
+      { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 3", type: "palestra" },
+      { time: "14:20-15:00", title: "EXPLORANDO A IMUNOLOGIA COM scRNA-seq E TRANSCRIPTOMA ESPACIAL - MARCO ATAIDE", type: "palestra" },
+      { time: "15:00-15:20", title: "DINÂMICA 1", type: "mesa" },
+      { time: "15:20-16:00", title: "FASTBIO - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
+      { time: "16:10-16:50", title: "?? - DANIEL TIEZZI", type: "palestra" },
+      { time: "16:50-17:10", title: "DINÂMICA 2", type: "mesa" },
+      { time: "17:10-17:40", title: "BIONFORMÁTICA E INTELIGÊNCIA ARTIFICIAL NA SAÚDE DE PRECISÃO - TATHIANE MALTA", type: "mesa" },
+    ]},
+    { day: "Qui 25/09", date: "25/09 - Biomecânica", events: [
+      { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 4", type: "palestra" },
+      { time: "14:20-15:00", title: "?? - LAIANE SIMÕES", type: "palestra" },
+      { time: "15:00-15:20", title: "DINÂMICA 1", type: "mesa" },
+      { time: "15:20-16:00", title: "EDITBIO - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
+      { time: "16:10-16:50", title: "SENSORIAL LIFE - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
+      { time: "16:50-17:10", title: "DINÂMICA 2", type: "mesa" },
+      { time: "17:10-17:40", title: "EPISTEMOLOGIA DA INSURGÊNCIA COM INTELIGÊNCIA ARTIFICIAL (EIIA) - MARIA CRISTIANE GALVÃO", type: "palestra" },
+    ]}
   ],
   ufpr: [
-    { day: "26 Ter", date: "26/09", events: [
-      { time: "09:00-10:00", title: "PROCESSAMENTO DE IMAGENS MÉDICAS", type: "palestra" },
-      { time: "10:30-12:00", title: "MESA REDONDA: FUTURO DA INFORMÁTICA BIOMÉDICA", type: "mesa" },
-      { time: "14:00-16:00", title: "WORKSHOP: ANÁLISE DE DADOS GENÔMICOS", type: "minicurso" }
+    { day: "Seg 22/09", date: "22/09", events: [
+        { time: "08:00-09:00", title: "ABERTURA SBIB", type: "palestra" },
+        { time: "09:00-10:00", title: "APRENDIZADO DE MÁQUINA EM PSIQUIATRIA", type: "palestra" },
+        { time: "10:15-11:15", title: "SISTEMAS MOBILE PARA AUXÍLIO DIAGNÓSTICO", type: "palestra" },
+        { time: "13:00-14:00", title: "APLICAÇÃO DE TECNOLOGIAS ÔMICAS NO ESTUDO DA SAÚDE DE PRECISÃO ONCOLÓGICA", type: "palestra" },
+        { time: "15:00-16:00", title: "PROCESSAMENTO E PRÉ-PROCESSAMENTO DE IMAGENS BIOMÉDICAS", type: "palestra" },
+        { time: "16:00-18:00", title: "REUNIÃO GUILHERME", type: "mesa" },
+        { time: "18:00-19:00", title: "MINICURSO ECOMP", type: "minicurso" }
     ]},
-    { day: "29 Sex", date: "29/09", events: [
-      { time: "14:00-17:00", title: "ANÁLISE DE DADOS COM PYTHON", type: "minicurso" }
+    { day: "Ter 23/09", date: "23/09", events: [
+        { time: "08:00-09:00", title: "INTELIGÊNCIA ARTIFICIAL EM SAÚDE: CONCEITOS, APLICAÇÕES E PERSPECTIVAS", type: "palestra" },
+        { time: "13:00-14:00", title: "A INCORPORAÇÃO DE TECNOLOGIAS NA NAVEGAÇÃO DO CUIDADO: DESAFIOS E PERSPECTIVAS", type: "palestra" },
+        { time: "15:00-16:00", title: "IA APLICADA À SAÚDE: PASSADO E NOVAS PERSPECTIVAS", type: "palestra" },
+        { time: "16:00-17:00", title: "INTELIGÊNCIA ARTIFICIAL", type: "palestra" },
+        { time: "17:00-19:00", title: "MINICURSO LATEX", type: "minicurso" }
+    ]},
+    { day: "Qua 24/09", date: "24/09", events: [
+        { time: "09:00-11:15", title: "IMPRESSÃO 3D APLICADA A FISIOTERAPIA", type: "palestra" },
+        { time: "13:00-14:00", title: "USO DE MODELOS IN SILICO NA AVALIAÇÃO DA SEGURANÇA DE PRODUTOS", type: "palestra" },
+        { time: "15:00-16:00", title: "AUXÍLIO DE IA NO DIAGNÓSTICO ODONTOLÓGICO", type: "palestra" },
+        { time: "16:00-17:00", title: "BIOINFORMÁTICA", type: "palestra" },
+        { time: "17:00-19:00", title: "MINICURSO IMAGENS MÉDICAS", type: "minicurso" }
+    ]},
+    { day: "Qui 25/09", date: "25/09", events: [
+        { time: "09:00-11:15", title: "ANÁLISES FILOGENÉTICAS BASEADAS EM SEQUÊNCIAS DE DNA: NOÇÕES GERAIS E APLICAÇÕES", type: "minicurso" },
+        { time: "13:00-14:00", title: "PET SAÚDE", type: "palestra" },
+        { time: "16:00-17:00", title: "PROJETOS DE IA: ASSISTENTES VIRTUAIS E CLASSIFICAÇÃO DE IMAGENS DE RETINOGRAFIA", type: "palestra" },
+        { time: "17:00-19:00", title: "MINICURSO DE GIT", type: "minicurso" }
+    ]},
+    { day: "Sex 26/09", date: "26/09", events: [
+        { time: "09:00-11:15", title: "TECNOLOGIAS NA REABILITAÇÃO NEUROLÓGICA", type: "minicurso" },
+        { time: "13:00-14:00", title: "MINERAÇÃO DE GENOMAS DE FUNGOS ENDOFÍTICOS", type: "palestra" },
+        { time: "15:00-16:00", title: "COMPUTADORES QUÂNTICOS", type: "palestra" },
+        { time: "16:00-18:00", title: "MINICURSO DE LINUX VOLTADO A SEGURANÇA", type: "minicurso" },
+        { time: "18:00-19:00", title: "MINICURSO ECOMP", type: "minicurso" }
     ]}
   ],
-  ufcspa: [
-    { day: "28 Qui", date: "28/09", events: [
-      { time: "09:00-10:00", title: "BIOMECÂNICA E ENGENHARIA DE TECIDOS", type: "palestra" },
-      { time: "10:30-12:00", title: "E-SAÚDE E PRONTUÁRIOS ELETRÔNICOS", type: "palestra" },
-      { time: "14:00-16:00", title: "WORKSHOP: DESENVOLVIMENTO DE APPS MÉDICAS", type: "minicurso" }
-    ]},
-    { day: "29 Sex", date: "29/09", events: [
-      { time: "18:00-20:00", title: "VISUALIZAÇÃO DE DADOS MÉDICOS", type: "minicurso" }
-    ]}
-  ],
-  online: [
-    { day: "25 Seg", date: "25/09", events: [
-      { time: "09:00-10:00", title: "ANÁLISE DE SINAIS FISIOLÓGICOS MULTIMO...", type: "palestra" },
-      { time: "10:00-11:00", title: "INTELIGÊNCIA ARTIFICIAL EM SAÚDE", type: "palestra" },
-      { time: "14:00-15:00", title: "BIOINFORMÁTICA E MEDICINA PERSONALIZADA", type: "palestra" }
-    ]}
-  ]
+  ufcspa: [], // Mantido para a aba, adicione aqui os eventos da UFCSPA
 };
 
-// --- Configuração das abas e tipos de evento ---
+// --- Configuração das abas e tipos de evento (sem a aba "Online") ---
 const tabs = [
   { id: 'all', label: 'Todos', icon: Presentation },
   { id: 'usp', label: 'USP', icon: University },
   { id: "ufpr", label: "UFPR", icon: University },
   { id: 'ufcspa', label: 'UFCSPA', icon: University },
-  { id: 'online', label: 'Online', icon: Tv }
 ];
 
 const eventTypes = {
@@ -74,21 +104,26 @@ const eventTypes = {
 const SchedulePage = () => {
   const [activeTab, setActiveTab] = useState('all');
 
-  // useMemo otimiza a performance, calculando o cronograma a ser exibido apenas quando a aba ativa muda
   const scheduleToDisplay = useMemo(() => {
     if (activeTab === 'all') {
       const combinedSchedule = {};
-      // Combina todos os eventos de todos os locais
       Object.entries(allSchedules).forEach(([location, schedule]) => {
         schedule.forEach(day => {
           if (!combinedSchedule[day.day]) {
-            combinedSchedule[day.day] = { ...day, events: [] };
+            // Cria a estrutura do dia se ela não existir
+            combinedSchedule[day.day] = { day: day.day, date: day.date, events: [] };
           }
           const eventsWithLocation = day.events.map(event => ({ ...event, location }));
           combinedSchedule[day.day].events.push(...eventsWithLocation);
         });
       });
-      return Object.values(combinedSchedule);
+      return Object.values(combinedSchedule).sort((a, b) => {
+        // Ordena os dias para garantir a sequência correta (Seg, Ter, Qua...)
+        const dayOrder = ["Seg", "Ter", "Qua", "Qui", "Sex"];
+        const dayA = a.day.split(" ")[0];
+        const dayB = b.day.split(" ")[0];
+        return dayOrder.indexOf(dayA) - dayOrder.indexOf(dayB);
+      });
     }
     return allSchedules[activeTab] || [];
   }, [activeTab]);
@@ -127,8 +162,9 @@ const SchedulePage = () => {
             scheduleToDisplay.map(day => (
               <div key={day.day}>
                 <div className="flex items-baseline gap-4 mb-6">
-                  <h2 className="text-3xl font-bold text-white">{day.day}</h2>
-                  <span className="text-xl font-medium text-[#8c7ff5]">{day.date}</span>
+                  <h2 className="text-3xl font-bold text-white">{day.day.split(' ')[0]} {day.day.split(' ')[1]}</h2>
+                  {/* Na aba 'Todos', a data pode variar, então mostramos um texto genérico */}
+                  {activeTab !== 'all' && <span className="text-xl font-medium text-[#8c7ff5]">{day.date}</span>}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {day.events.map((event, index) => (
@@ -160,13 +196,5 @@ const SchedulePage = () => {
     </div>
   );
 };
-
-// Adicione este componente `Clock` se `lucide-react` não tiver um
-const Clock = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
 
 export default SchedulePage;

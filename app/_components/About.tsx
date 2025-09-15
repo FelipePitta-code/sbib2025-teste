@@ -51,14 +51,14 @@ const About = () => {
           {/* Coluna 1: Textos Explicativos */}
           <div className="lg:pr-8">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-              Sobre a SBIB e a Informática Biomédica
+              SBIB e a Informática Biomédica
             </h2>
             <div className="text-lg text-gray-300 space-y-6 leading-relaxed">
               <p>
                 A <strong>Semana Brasileira de Informática Biomédica (SBIB)</strong> é um evento que reúne estudantes, pesquisadores e profissionais de áreas como Computação, Engenharias, Medicina e Biologia. Com caráter acadêmico e empresarial, a SBIB oferece um espaço interdisciplinar para a troca de experiências e a discussão de inovações tecnológicas aplicadas à saúde.
               </p>
               <p>
-                O principal objetivo é aproximar a comunidade acadêmica e empresarial, permitindo que alunos tenham contato direto com pesquisadores de referência e com o setor produtivo, fortalecendo a formação e incentivando parcerias estratégicas para pesquisa e inovação.
+                O principal objetivo é aproximar a comunidade, permitindo que alunos tenham contato direto com pesquisadores de referência e com o setor produtivo, fortalecendo a formação e incentivando parcerias estratégicas para pesquisa e inovação.
               </p>
               <p>
                 A <strong>Informática Biomédica</strong>, por sua vez, é a área interdisciplinar dedicada a aplicar tecnologias computacionais na saúde. Ela atua desde a análise de dados genômicos até a gestão de informações médicas, sendo estratégica para o avanço de diagnósticos, tratamentos personalizados e políticas públicas de saúde.

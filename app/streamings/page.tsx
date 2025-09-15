@@ -12,7 +12,6 @@ interface Stream {
 }
 
 // --- DADOS DAS TRANSMISSÕES (fácil de atualizar) ---
-// Você pode buscar isso de uma API ou simplesmente atualizar aqui
 const streamsData: Stream[] = [
   { id: 1, title: "Abertura - USP", status: 'live', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
   { id: 2, title: "Abertura - UFPR", status: 'upcoming', description: "Abertura oficial da XXIII SBIB.", streamLink: "#" },
@@ -46,15 +45,18 @@ const StreamingCard = ({ stream }: { stream: Stream }) => {
   const CardTag = stream.status === 'live' && stream.streamLink ? 'a' : 'div';
 
   return (
-    <div className="bg-[#1f4b63]/40 rounded-xl border border-[#2b6670]/50 shadow-lg transition-all duration-300 hover:border-[#8c7ff5]/60 hover:scale-[1.03]">
-      <div className="p-6">
+
+    <div className="h-full flex bg-[#1f4b63]/40 rounded-xl border border-[#2b6670]/50 shadow-lg transition-all duration-300 hover:border-[#8c7ff5]/60 hover:scale-[1.03]">
+
+      <div className="p-6 h-full flex flex-col">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold text-white">{stream.title}</h3>
           <span className={`px-3 py-1 text-xs font-semibold rounded-full border ${currentStatus.badge}`}>
             {currentStatus.text}
           </span>
         </div>
-        <p className="text-gray-400 mb-6 min-h-[40px]">{stream.description}</p>
+
+        <p className="text-gray-400 mb-6 flex-grow">{stream.description}</p>
         
         <CardTag 
           href={stream.streamLink}

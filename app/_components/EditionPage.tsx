@@ -3,7 +3,7 @@ import React from 'react';
 type EditionPageProps = {
   year: number;
   bannerSrc?: string;
-  photoSrc?: string;
+  photoSrc?: string | null;
   committee?: string;
   acknowledgements?: string;
   youtubePlaylist?: string;
@@ -19,7 +19,14 @@ const EditionPage: React.FC<EditionPageProps> = ({
 }) => {
   return (
     <main className="container edition-detail">
-      <h2>{year}</h2>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-50">
+          Edição <span className="text-purple-600">{year}</span>
+        </h1>
+        <p className="mt-4 text-lg text-gray-300">
+          Relembre esta edição!
+        </p>
+      </div>
 
       <section className="edition-banner">
         {bannerSrc ? (
@@ -41,22 +48,22 @@ const EditionPage: React.FC<EditionPageProps> = ({
       </section>
 
       <section className="edition-photo">
-        <div className="photo-container">
-          {photoSrc ? (
+        
+        {photoSrc && (
+          <div className="photo-container">
             <img src={photoSrc} alt={`Foto da edição ${year}`} />
-          ) : (
-            <div className="photo-placeholder">Foto da edição {year}</div>
-          )}
-        </div>
+          </div>
+        )}
+
         {youtubePlaylist && (
-          <div className="youtube-link">
+          <div className="youtube-link mt-8"> 
             <a 
               href={youtubePlaylist} 
               target="_blank" 
               rel="noopener noreferrer"
               className="youtube-btn"
             >
-              📺 Ver Playlist no YouTube
+              Ver Playlist no YouTube
             </a>
           </div>
         )}
@@ -66,5 +73,3 @@ const EditionPage: React.FC<EditionPageProps> = ({
 };
 
 export default EditionPage;
-
-
