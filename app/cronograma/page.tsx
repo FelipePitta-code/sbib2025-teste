@@ -5,7 +5,7 @@ import { University, Users, Presentation, Clock } from 'lucide-react';
 // ============================================================================
 // 1. ESTRUTURA DE DADOS ATUALIZADA E CORRIGIDA
 // ============================================================================
-type EventType = 'palestra' | 'mesa' | 'minicurso';
+type EventType = 'palestra' | 'mesa' | 'minicurso' | 'visitatecnica' | 'hackathon';
 type Event = {
   time: string;
   title: string;
@@ -115,7 +115,41 @@ const allSchedules: AllSchedules = {
       ]
     }
   ],
-  ufcspa: [], // Mantido para a aba, adicione aqui os eventos da UFCSPA
+  ufcspa: [
+    {
+      day: "Seg 22/09", date: "22/09", events: [
+        { time: "14:00-16:00", title: "TIPS AND TRICKS OF SELECTING PROCESS", type: "palestra" },
+        { time: "16:00-17:30", title: "CURRÍCULO VITAE, LINKEDIN E SESSÃO DE FOTOS", type: "palestra" },
+        { time: "18:30-20:30", title: "CONTRUINDO SEU CURRÍCULO LATTES", type: "palestra" }
+      ]
+    },
+    {
+      day: "Ter 23/09", date: "23/09", events: [
+        { time: "14:00-17:00", title: "PYTHON PARA ANÁLISE DE DADOS", type: "minicurso" },
+        { time: "14:00-17:00", title: "FLUTTER PARA MOBILE E WEB, FOCO NO DESENVOLVIMENTO DE SITES E APPS", type: "minicurso" },
+        { time: "14:00-17:00", title: "INTRODUCAO A R PARA BIOINFORMÁTICA", type: "minicurso" }
+      ]
+    },
+    {
+      day: "Qua 24/09", date: "24/09", events: [
+        { time: "14:00-15:30", title: "VISITA AO INSTITUTO CALDEIRA: BATE-PAPO COM STARTUP HORTTI", type: "palestra" },
+        { time: "15:30-17:00", title: "TOUR PELO INSTITUTO CALDEIRA", type: "visitatecnica" },
+        { time: "18:30-19:30", title: "CONVERSA COM A COORDENAÇÃO", type: "mesa" },
+        { time: "19:30-20:30", title: "10 ANOS DE INFOBIO! COFFEE BREAK COM EGRESSOS, ALUNOS E PROFESSORES", type: "mesa" }
+      ]
+    },
+    {
+      day: "Qui 25/09", date: "25/09", events: [
+        { time: "04:00-16:00", title: "FIGMA E PROTOTIPAÇÃO", type: "minicurso" },
+        { time: "16:00-17:30", title: "SOFT SKILLS NO MERCADO DE TRABALHO", type: "palestra" }
+      ]
+    },
+    {
+      day: "Sex 26/09", date: "26/09", events: [
+        { time: "14:00-21:00", title: "IDEATHON!", type: "hackathon" }
+      ]
+    }
+  ], // Mantido para a aba, adicione aqui os eventos da UFCSPA
 };
 
 // --- Configuração das abas e tipos de evento (sem a aba "Online") ---
@@ -129,7 +163,9 @@ const tabs = [
 const eventTypes: Record<EventType, { label: string; color: string; borderColor: string }> = {
   palestra: { label: 'Palestra', color: 'bg-[#c73db7]', borderColor: 'border-l-4 border-[#c73db7]' },
   mesa: { label: 'Mesa Redonda', color: 'bg-[#56bb8c]', borderColor: 'border-l-4 border-[#56bb8c]' },
-  minicurso: { label: 'Minicurso', color: 'bg-[#8c7ff5]', borderColor: 'border-l-4 border-[#8c7ff5]' }
+  minicurso: { label: 'Minicurso', color: 'bg-[#8c7ff5]', borderColor: 'border-l-4 border-[#8c7ff5]' },
+  visitatecnica: { label: 'Visita Técnica', color: 'bg-[#f5a623]', borderColor: 'border-l-4 border-[#f5a623]' },
+  hackathon: { label: 'Hackathon', color: 'bg-[#50e3c2]', borderColor: 'border-l-4 border-[#50e3c2]' }
 };
 
 // ============================================================================
