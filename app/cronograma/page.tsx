@@ -23,7 +23,6 @@ type AllSchedules = {
 
 const allSchedules: AllSchedules = {
   usp: [
-    // Antigos eventos "Online" agora consolidados na USP
     { day: "Seg 22/09", date: "22/09 - E-Saúde", events: [
       { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 1", type: "palestra" },
       { time: "14:20-15:00", title: "COMO CONSOLIDAR UMA CARREIRA NA ÁREA DA SAÚDE E TECNOLOGIA - UBIRAJARA", type: "palestra" },
@@ -49,14 +48,18 @@ const allSchedules: AllSchedules = {
       { time: "16:50-17:10", title: "DINÂMICA 2", type: "mesa" },
       { time: "17:10-17:40", title: "BIONFORMÁTICA E INTELIGÊNCIA ARTIFICIAL NA SAÚDE DE PRECISÃO - TATHIANE MALTA", type: "mesa" },
     ]},
-    { day: "Qui 25/09", date: "25/09 - Biomecânica", events: [
+    { day: "Qui 25/09", date: "25/09 - Misto", events: [
       { time: "14:00-14:15", title: "ABERTURA SBIB - DIA 4", type: "palestra" },
       { time: "14:20-15:00", title: "RADIOTERAPIA E ANÁLISE DE DADOS - LAIANE SIMÕES", type: "palestra" },
       { time: "15:00-15:20", title: "DINÂMICA 1", type: "mesa" },
       { time: "15:20-16:00", title: "EDITBIO - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
-      { time: "16:10-16:50", title: "SENSORIAL LIFE - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
-      { time: "16:50-17:10", title: "DINÂMICA 2", type: "mesa" },
-      { time: "17:10-17:40", title: "EPISTEMOLOGIA DA INSURGÊNCIA COM INTELIGÊNCIA ARTIFICIAL (EIIA) - MARIA CRISTIANE GALVÃO", type: "palestra" },
+      { time: "16:00-16:40", title: "SENSORIAL LIFE - CONHEÇA UM POUCO MAIS SOBRE A EMPRESA", type: "palestra" },
+      { time: "16:40-16:50", title: "DINÂMICA 2", type: "mesa" },
+      { time: "16:50-17:30", title: "EPISTEMOLOGIA DA INSURGÊNCIA COM INTELIGÊNCIA ARTIFICIAL (EIIA) - MARIA CRISTIANE GALVÃO", type: "palestra" },
+    ]},
+    { day: "Sex 26/09", date: "26/09 - Minicurso", events: [
+      { time: "08:00-12:00", title: "CLOUD FOUNDATION: INTRODUÇÃO PRÁTICA COM AWS", type: "minicurso" },
+    
     ]}
   ],
   ufpr: [

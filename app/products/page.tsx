@@ -99,24 +99,32 @@ const Products = () => {
           <h4>Adquira produtos oficiais do evento. A venda será realizada de forma PRESENCIAL no dia do evento!</h4></p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <ProductCard 
-            title="Adesivo SBIB 2025"
-            price="Preço a definir"
+            title="Adesivo SBIB 2025 - IBm"
+            price="R$ 3,00"
             status="Disponível"
-            imageSrc="/img.products/adesivo.jpg"
+            imageSrc="/img.products/adesivo1.png"
+            buyLink="#"
+            sizes={['Único']}
+          />
+            <ProductCard 
+            title="Adesivo SBIB 2025 - SBIB"
+            price="R$ 3,00"
+            status="Disponível"
+            imageSrc="/img.products/adesivo2.png"
             buyLink="#"
             sizes={['Único']}
           />
           <ProductCard 
             title="Broche SBIB 2025"
-            price="Preço a definir"
+            price="R$ 6,00"
             status="Disponível"
-            imageSrc="/img.products/broche.jpeg"
+            imageSrc="/img.products/brochebranco.png"
             buyLink="#"
             sizes={['Único']}
           />
           <ProductCard 
             title="Camiseta SBIB 2025"
-            price="Preço a definir"
+            price="R$ 50,00"
             status="Disponível"
             imageSrc="/img.products/camisa_frente.jpg"
             buyLink="#"
@@ -124,25 +132,9 @@ const Products = () => {
           />
           <ProductCard 
             title="Cordão SBIB 2025"
-            price="Preço a definir"
+            price="R$ 12,00"
             status="Disponível"
             imageSrc="/img.products/cordao.jpg"
-            buyLink="#"
-            sizes={['Único']}
-          />
-          <ProductCard 
-            title="Ecobag SBIB 2025"
-            price="Preço a definir"
-            status="Disponível"
-            imageSrc="/img.products/ecobag.jpg"
-            buyLink="#"
-            sizes={['Único']}
-          />
-          <ProductCard 
-            title="Garrafa SBIB 2025"
-            price="Preço a definir"
-            status="Disponível"
-            imageSrc="/img.products/garrafa.jpg"
             buyLink="#"
             sizes={['Único']}
           />

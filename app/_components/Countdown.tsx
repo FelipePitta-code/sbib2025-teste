@@ -31,7 +31,7 @@ const TimeCard = ({ value, label }: { value: number; label: string }) => (
 // --- Componente Principal do Countdown ---
 const Countdown = () => {
   // --- DATAS PRINCIPAIS DO EVENTO ---
-  const eventStartDate = new Date("2025-09-22T14:00:00");
+  const eventStartDate = new Date("2025-09-22T08:00:00");
   const eventEndDate = new Date("2025-09-26T18:00:00");
 
   // --- FUNÇÕES DE LÓGICA ---
